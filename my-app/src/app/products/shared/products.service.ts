@@ -8,8 +8,6 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-
-
   constructor(private _http: HttpClient) {}
 
   getAll(): Observable<ProductDto[]> {
@@ -17,10 +15,7 @@ export class ProductsService {
       .get<ProductDto[]>(environment.api + '/api/Product');
   }
 
-  getAllTest() {
-
-    return [
-      {id: 1, name: "test"},
-    ]
+  getProductById(id: number): Observable<ProductDto>{
+    return this._http.get<ProductDto>(environment.api + '/api/Product/' + id);
   }
 }
