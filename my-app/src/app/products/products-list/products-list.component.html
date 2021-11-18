@@ -1,6 +1,6 @@
 <h1>Products</h1>
 
-<ul *ngIf="products$  as products else loading">
+<ul *ngIf="products$ | async as products else loading">
   <span *ngIf="products && products.length > 0 else noProducts">
     <li *ngFor="let product of products">
       id: {{product.id}} name: {{product.name}}
